@@ -5,7 +5,11 @@ This is a repository in which I will be developing my own version of Zork text a
 must be inserted like: (action)(direction/item). 
 
 You move with nort/south/east/west.
+
 write "open" to open a door and "close" for closing it. 
+
 write "quit game" for quiting the game. 
+
 write "help me" for asking for help. 
+
 write "look" to see what you have arround you. 
