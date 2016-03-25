@@ -3,13 +3,13 @@ This is a repository in which I will be developing my own version of Zork text a
 
 You move with go + nort/south/east/west.
 
-write "open" to open a door and "close" for closing it. 
+Write "open" to open a door and "close" for closing it. 
 
-write "quit game" for quiting the game. 
+Write "quit game" for quiting the game. 
 
-write "help me" for asking for help. 
+Write "help me" for asking for help. 
 
-write "look" to see what you have arround you. 
+Write "look" to see what you have arround you. 
 
 ## 0.2
 
@@ -18,7 +18,7 @@ must be inserted like: (action)(direction/item).
 
 ##0.3
 
-2: In the second delivery I improved the following aspects: 
+In the second delivery I improved the following aspects: 
 	- I deleted al the memory leaks. 
 	- I split the program to the number of functions that were needed, not having all the program on CreateWorld();
 	- I improved the general structure of the scanf_s in order to be more general. 
