@@ -1,10 +1,17 @@
+#ifndef _ROOMS_H_
+#define _ROOMS_H_
 
 
-class Rooms{
+class Rooms : public Entity{
 public:
-	char name[50];
-	char description[350];
 	char help[100];
 	int room_numb;
-
+public:
+	Entity* rooms_entity; 
 };
+
+#endif // !_ROOMS_H_
+
+
+
+
