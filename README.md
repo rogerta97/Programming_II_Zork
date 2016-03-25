@@ -1,6 +1,6 @@
 # Programming_II_Zork
 This is a repository in which I will be developing my own version of Zork text adventure.
-
+___
 You move with go + nort/south/east/west.
 
 Write "open" to open a door and "close" for closing it. 
@@ -10,7 +10,7 @@ Write "quit game" for quiting the game.
 Write "help me" for asking for help. 
 
 Write "look" to see what you have arround you. 
-
+___
 ## 0.2
 
 In the first delivering, the unique funciontallity of the game is moving arround the map and being able to open one door, the comands 
