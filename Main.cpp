@@ -13,12 +13,12 @@ int main(){
 	ReportMemoryLeaks(); 
 
 	world* my_world;
-	my_world = new world[1];
+	my_world = new world;
 
 	printf("**WELCOME TO ZORK**\n\nComands must be inserted following (action) (direction/item)\n\n");
 
 	my_world[0].CreateWorld();	
-	my_world[0].Chek_input();
+	my_world[0].Check_input();
 	my_world[0].Destroy_World(); 
 
 	delete my_world; 
