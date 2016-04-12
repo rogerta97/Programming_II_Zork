@@ -17,7 +17,6 @@
 using namespace std; 
 
 // Simple objects are those that are needed for advancing the game and just need to be true or false, like a on or off generator, a on or off fireplace, check if the user moved the carpet...
-// 0:glass 1:Key 2:matchstick 3:Sword
 
 void world::CreateWorld(){
 
@@ -154,10 +153,10 @@ void world::CreateWorld(){
 	simple_obj[3] = new Simple_Objects(false, "closet");
 
 	//Setting the items information with a constructor. 
-	items[0] = new item("glass", "This is a normal glass of watter, but a big one!"); 
-	items[1] = new item("key", "This is an old golden key that seems to be the key of some old door too.");
-	items[2] = new item("match", "A match! Light it up!");
-	items[3] = new item("sword", "What can you do with a sword? ;)");
+	items[0] = new item("glass", "This is a normal glass of watter, but a big one!", false); 
+	items[1] = new item("key", "This is an old golden key that seems to be the key of some old door too.", false);
+	items[2] = new item("match", "A match! Light it up!", false);
+	items[3] = new item("sword", "What can you do with a sword? ;)", false);
 
 	//Setting the number of the items and the carriage. 
 	for (int i = 0; i < ITEMS_NUMB; i++){
@@ -217,13 +216,15 @@ void world::Check_input(){
 				Show_inventory();
 			else if (strcmp("stats", comand) == 0)
 				printf("HP: %d\nWeapon: %s\nCard hability: In_Developement\nCurrent room: %d\nDamage: %d\nShield: %d\n", main_character->hp, main_character->item_name(main_character->weapon), main_character->current_room, main_character->attack, main_character->defense);
+			else if (strcmp("put", comand) == 0)
+				Put_Objects(); 
 			else
 				printf("\nI don't undestrand you, insert comands like <action> <direction/item>\n\n");		
 		}
 		else{
 			scanf_s("%s", &move, 10);
 			printf("\n");
-			char open_direc[10];
+			//char open_direc[10];
 			if (strcmp("teleport", comand) == 0){
 				if (strcmp("BURNER", move) == 0){
 					main_character->current_room = 2;
@@ -234,14 +235,21 @@ void world::Check_input(){
 				move_character(move, moved, action_done);
 			else if (strcmp("open", comand) == 0){
 				//if the user wants to open something
-				Open_Stuff(move, main_character->current_room, action_done);
+				int object_open;
+
+				if (strcmp("drawer", move) == 0)
+					object_open = OPEN_DRAWER;
+				else if (strcmp("door", move) == 0)
+					object_open = OPEN_DOOR;
+				else if (strcmp("closet", move) == 0)
+					object_open = OPEN_CLOSET;
+
+				Open_Stuff(main_character->current_room, action_done, object_open);
 				//here will be placed other things that can be opened: "window", "box"...	
 			}
 			else if (strcmp("close", comand) == 0){
 				//if the user wants to close something
 				Close_Stuff(move, main_character->current_room, action_done);
-				
-
 			}
 			else if (strcmp("move", comand) == 0){
 				//if the user wants to move something (objects that can be moved and don't have no more functionality are in Simple_Objects class).
@@ -475,33 +483,61 @@ void world::move_character(const char* move, bool& moved, bool& permission){
 	}
 }
 void world::Pick_Item(const char* item_name, const int current_room){
+	bool Show_message = false;
+
+	for (int i = 0; i < ITEMS_NUMB; i++)
+		if (strcmp(items[i]->name.c_str(), item_name) == 0)
+			Show_message = true;
+	
 	for (int i = 0; i < ITEMS_NUMB; i++){
 		if ((strcmp(items[i]->name.c_str(), item_name) == 0) && current_room == items[i]->item_room && items[i]->carried == false){
+			Show_message = false;
 			switch (i){
-			case 0:
-				items[i]->carried = true;
-				printf("You picked up the %s\n\n", item_name);
-				Full_inventory(items[i]->item_num); 
+			case ITEM_GLASS:
+				if (simple_obj[SIMPLE_SHELV]->moved == true){
+					items[i]->carried = true;
+					printf("You picked up the %s\n\n", item_name);
+					Full_inventory(items[i]->item_num);
+				}
+				else
+					printf("There is no %s here.\n\n", item_name); 
 				break;
-			case 1:
-				items[i]->carried = true;
-				printf("You picked up the %s\n\n", item_name);
-				Full_inventory(items[i]->item_num);
+
+			case ITEM_KEY:
+				if (simple_obj[SIMPLE_FIREPLACE]->moved == true){
+					items[i]->carried = true;
+					printf("You picked up the %s\n\n", item_name);
+					Full_inventory(items[i]->item_num);
+				}
+				else
+					printf("There is no %s here.\n\n", item_name);
 				break;
-			case 2:
-				items[i]->carried = true;
-				printf("You picked up the %s\n\n", item_name);
-				Full_inventory(items[i]->item_num);
+
+			case ITEM_MATCH:
+				if (simple_obj[SIMPLE_DRAWER]->moved == true){
+					items[i]->carried = true;
+					printf("You picked up the %s\n\n", item_name);
+					Full_inventory(items[i]->item_num);
+				}
+				else
+					printf("There is no %s here.\n\n", item_name);
 				break;
-			case 3:
-				items[i]->carried = true;
-				printf("You picked up the %s\n\n", item_name);
-				Full_inventory(items[i]->item_num);
+
+			case ITEM_SWORD:
+				if (simple_obj[SIMPLE_CLOSET]->moved == true){
+					items[i]->carried = true;
+					printf("You picked up the %s\n\n", item_name);
+					Full_inventory(items[i]->item_num);
+				}
+				else
+					printf("There is no %s here.\n\n", item_name);
 				break;
 
 			}
 		}	
 	}
+	if (Show_message)
+		printf("There is no %s here.\n\n", item_name); 
 }
 void world::Move_Simple_Obj(const char* move){
 	if (strcmp(move, "shelving") == 0&& main_character->current_room == 2){ 
@@ -516,10 +552,7 @@ void world::Move_Simple_Obj(const char* move){
 	}
 	//This need to be changed into-> use glass. 
 	else if (strcmp(move, "fireplace") == 0 && main_character->current_room == 2 && simple_obj[1]->moved == false){
-		if (simple_obj[1]->moved == false){
-			simple_obj[1]->moved = true;
-			printf("You turned off the fireplace, there is no burning now so you realize a little gold shining that seems to be a key!\n\n");
-		}		
+		
 	}
 	else if (strcmp(move, "closet") == 0 && main_character->current_room == 4){
 		if (simple_obj[3]->moved == false){
@@ -568,55 +601,76 @@ unsigned int world::Carried_Obj_Numb(){
 	}
 	return obj_numb; 
 }
-void world::Open_Stuff(const char* move, int current_room, bool& action_done){
-	if (strcmp("door", move) == 0){
-		//this is the function to open doors
-		char open_direc[10]; 
-		printf("What is the direction of the door that you want to open?\n\n");
-		printf(">: ");
-		scanf_s(" %s", &open_direc, 10);
-		printf("\n");
-		switch (main_character->current_room){
-		case 0:
-			if ((strcmp("north", open_direc)) == 0 && exit[1]->open == false){
-				exit[1]->open = true;
-				action_done = true;
-			}
-			printf("You opened the %s!\n", exit[1]->name);
-			break;
-		case 1:
-			if ((strcmp("south", open_direc)) == 0 && exit[1]->open == false){
-				exit[1]->open = true;
-				action_done = true;
-			}
-			printf("You opened the %s!\n\n", exit[1]->name);
-			break;
-		}
-		printf("\n");
+void world::Open_Stuff(int current_room, bool& action_done, int open_type){
+	switch (open_type){
+	case OPEN_DOOR:
+	{
+					  //this is the function to open doors
+					  char open_direc[10];
+					  printf("What is the direction of the door that you want to open?\n\n");
+					  printf(">: ");
+					  scanf_s(" %s", &open_direc, 10);
+					  printf("\n");
+					  switch (main_character->current_room){
+					  case 0:
+						  if ((strcmp("north", open_direc)) == 0 && exit[1]->open == false){
+							  exit[1]->open = true;
+							  action_done = true;
+						  }
+						  printf("You opened the %s!\n", exit[1]->name);
+						  break;
+					  case 1:
+						  if ((strcmp("south", open_direc)) == 0 && exit[1]->open == false){
+							  exit[1]->open = true;
+							  action_done = true;
+						  }
+						  printf("You opened the %s!\n\n", exit[1]->name);
+						  break;
+					  }
+					  printf("\n");
 	}
-	//opening the drawer. 
-	else if (strcmp("drawer", move) == 0 && main_character->current_room == 4){
-		if (simple_obj[2]->moved == false){
-			simple_obj[2]->moved = true;
+		break;
+
+	case OPEN_DRAWER:
+		if (main_character->current_room == 4 && simple_obj[SIMPLE_DRAWER]->moved == false){
+			simple_obj[SIMPLE_DRAWER]->moved = true;
 			printf("You opened the drawer, revealing a matchstick of your daddy!\n\n");
 		}
 		else
 			printf("This is already opened!\n\n");
+		action_done = true; 
+			break;
 
-		action_done = true;
-	}
-	//opening the closet.
-	else if (strcmp(move, "closet") == 0 && main_character->current_room == 4){
-		if (simple_obj[3]->moved == false){
-			simple_obj[3]->moved = true;
+	case OPEN_CLOSET: 
+		if (main_character->current_room == 4 && simple_obj[SIMPLE_CLOSET]->moved == false){
+			simple_obj[SIMPLE_CLOSET]->moved = true;
 			printf("You opened the closet, and you discovered something you daddy didn't told you, he has a sword on the closet!\n\n");
 		}
-		else{
+		else
 			printf("The closet is already opened.\n\n");
-
-		}
 		action_done = true;
+		break;
+		}
 	}
+// SCANF OF VARIAAAAABLEEEEEEEEES
+void world::Put_Objects(){
+	char item_str[20]; 
+	char into_str[5];
+	char destination_str[20];
+	scanf_s("%s %s %s", &item_str, 20, &into_str, 5, &destination_str, 20); 
+	printf("\n");
+	if (isin_inventory(item_str)){
+		if ((strcmp(simple_obj[Get_Num(destination_str)]->name, "fireplace") && (strcmp(simple_obj[Get_Num(item_str)]->name, "glass")))){
+			if (simple_obj[SIMPLE_FIREPLACE]->moved == false){
+				simple_obj[SIMPLE_FIREPLACE]->moved = true;
+				printf("You turned off the fireplace, there is no burning now so you realize a little gold shining that seems to be a key!\n\n");
+			}
+		}
+
+		if (items[Get_Num(destination_str)]->storage_item == true)
+			put_object_into_object(Get_Num(item_str), Get_Num(destination_str));
+	}
+
 }
 void world::Close_Stuff(const char* move, int current_room, bool& action_done){
 	if (strcmp("door", move) == 0){
@@ -712,8 +766,6 @@ void world::Unequip_item(const char* item_name){
 
 }
 int world::Get_Num(const char* item_name) const{
-	int i = 0;
-	while (i < MAX_OBJECTS){
 		if (strcmp(item_name, "glass") == 0)
 			return 0;
 		else if (strcmp(item_name, "key") == 0)
@@ -722,8 +774,7 @@ int world::Get_Num(const char* item_name) const{
 			return 2;
 		else if (strcmp(item_name, "sword") == 0)
 			return 3; 
-		i++;
-	}
+	
 }
 bool world::isin_inventory(const char* item_name){
 	int i = 0; 
@@ -734,6 +785,18 @@ bool world::isin_inventory(const char* item_name){
 		i++;
 	}
 	return isin;	
+}
+void world::put_object_into_object(int item_num, int destination_num){
+	int i = 0;
+	while (i < MAX_ITEMS_STORAGE){
+		if (items[destination_num]->inventory[i] == NULL){
+			items[destination_num]->inventory[i] = item_num;
+			break;
+		}
+		i++;
+	}
+	if (i == MAX_ITEMS_STORAGE)
+		printf("You can't carry more things!\n\n");
 }
 
 

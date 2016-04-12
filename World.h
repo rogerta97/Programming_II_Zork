@@ -20,7 +20,7 @@ private:
 	void Pick_Item(const char*, const int); 
 	void Drop_item(const char*, int);
 	void Move_Simple_Obj(const char*); 
-	void Open_Stuff(const char* move, int current_room, bool& action_done);
+	void Open_Stuff(int current_room, bool& action_done, int object_open);
 	void Close_Stuff(const char* move, int current_room, bool& action_done);
 	unsigned int Carried_Obj_Numb();
 	void Full_inventory(int);
@@ -30,10 +30,28 @@ private:
 	void Unequip_item(const char*);
 	int Get_Num(const char* item_num) const;
 	bool isin_inventory(const char*);
-	
-
+	void Put_Objects(); 
+	void put_object_into_object(int, int);
 	
 	bool operator==(const char*); 
+
+	enum open_type{
+		OPEN_DOOR,
+		OPEN_DRAWER,
+		OPEN_CLOSET,
+	};
+	enum simple_objects{
+		SIMPLE_SHELV,
+		SIMPLE_FIREPLACE,
+		SIMPLE_DRAWER,
+		SIMPLE_CLOSET,
+	};
+	enum items{
+		ITEM_GLASS,
+		ITEM_KEY,
+		ITEM_MATCH,
+		ITEM_SWORD,
+	};
 
 public:
 	void CreateWorld();

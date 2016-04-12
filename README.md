@@ -3,13 +3,23 @@ This is a repository in which I will be developing my own version of Zork text a
 ___
 You move with go + nort/south/east/west.
 
-Write "open" to open a door and "close" for closing it. 
+Write "open" + item / "close" + item for open something. 
 
-Write "quit game" for quiting the game. 
+Write "quit" for quiting the game. 
 
-Write "help me" for asking for help. 
+Write "help" for having some extra help. 
 
 Write "look" to see what you have arround you. 
+
+Write "pick + item" to pick something to your inventory. 
+
+Write "put <item> into <item/object>" to put something inside and object, or use something against something"
+
+Write "equip + item" to equip something.
+
+Write "inventory" to check your inventory.
+
+Write "stats" to chek your combat stats. (will crash on v0.3.3)
 ___
 ## 0.2
 
@@ -29,18 +39,9 @@ In the second delivery I improved the following aspects:
 	- I made a new class called entity, this contains names and descrptions and each room and exit will have his own.  
 
 =======
-You move with nort/south/east/west.
 
-write "open" to open a door and "close" for closing it. 
-
-write "quit game" for quiting the game. 
-
-write "help me" for asking for help. 
-
-write "look" to see what you have arround you. 
-
-=======
 3: In the third commit I made the following implementations: 
+v 0.3.2
 
 	- I implemented space for the combat stats of the player (HP, Attack, defense, special habilities)
 	- I improved the constructors of every part of the game. 
@@ -51,4 +52,12 @@ write "look" to see what you have arround you.
 	- The player is able to equip and unequip things and to see the inventory and the actual stats. 
 
 =======
+
+4: In the fourth commit I made the following improvements: 
+v0.3.3 (althoug there are all the comands working, there is no 0.4 since I have to place all the objects, but the funciontallity is done)
+
+	- I crated the action of put an object inside another object, that can be used to for taking use of the objects, for example, put figure into table.
+	- I improved the constructor of the items, now they accept a bool depending on if the object can storage other objects inside. 
+	- I created a class and a file for the inventory, it's the base class of player and items, carrying it's respective objects, with it's respective contstructor. 
+	-
 

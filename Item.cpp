@@ -1,8 +1,6 @@
 #include "Item.h"
 #include <string.h>
 
-#define MAX_OBJECTS 10
-
 int item::Get_Room(int item_num){
 	switch (item_num){
 		case 0: return 2; break;
