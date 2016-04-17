@@ -3,7 +3,7 @@
 
 class combat{
 public: 
-	int hp, defense, attack; 
+	int hp, attack, defense; 
 };
 
 #endif

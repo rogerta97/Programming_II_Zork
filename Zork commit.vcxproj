@@ -88,11 +88,13 @@
     <ClInclude Include="Rooms.h" />
     <ClInclude Include="Simple_Objects.h" />
     <ClInclude Include="Strings.h" />
+    <ClInclude Include="Vector.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Exits.cpp" />
+    <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player.cpp" />

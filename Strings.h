@@ -3,7 +3,6 @@
 #ifndef _STRINGS_H_
 #define	_STRINGS_H_
 
-
 class String{
 public:
 	char* string;
@@ -16,14 +15,18 @@ public:
 	~String();
 
 	unsigned int length();
-	bool empty();
+	bool isempty();
+	void empty();
 	const char* c_str();
+	
 
 
 public:
 	bool operator==(const String& str2) const;
 	bool operator==(const char* str2) const;
-	String& operator=(const char* str2);
+	bool operator!=(const char* str2) const;
+	String& operator=(char* str2);
+	String& operator=(String*& str2);
 };
 
 #endif // !1

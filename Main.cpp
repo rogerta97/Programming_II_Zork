@@ -10,18 +10,19 @@
 //Add entity. 
 
 int main(){
+
 	ReportMemoryLeaks(); 
 
 	world* my_world;
-	my_world = new world;
+	my_world = new world[1];
 
 	printf("**WELCOME TO ZORK**\n\nComands must be inserted following (action) (direction/item)\n\n");
 
-	my_world[0].CreateWorld();	
-	my_world[0].Check_input();
-	my_world[0].Destroy_World(); 
+	my_world->CreateWorld();	
+	my_world->Check_input();
+	my_world->Destroy_World(); 
 
-	delete my_world; 
+	//delete[] my_world; 
 
 	getchar();
 	return 0;

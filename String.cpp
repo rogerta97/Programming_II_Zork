@@ -1,6 +1,8 @@
 #include "Strings.h"
 #include <assert.h>
+#include <cctype>
 #include <string.h>
+
 
 
 String::String(){
@@ -31,8 +33,12 @@ unsigned int String::length(){
 	return strlen(string);
 }
 
-bool String::empty(){
+bool String::isempty(){
 	return (string[0] == NULL); 
+}
+
+void String::empty(){
+	string[0] = '\0';
 }
 
 String::~String(){
@@ -47,7 +53,11 @@ bool String::operator==(const char* str2) const{
 	return (strcmp(string, str2) == 0);
 }
 
- String& String::operator=(const char* str2){
+bool String::operator!=(const char* str2) const{
+	return (strcmp(string, str2) != 0);
+}
+
+ String& String::operator=(char* str2){
 	
 	int length_str2 = strlen(str2);
 	max_value = strlen(string) + 1; 
@@ -60,6 +70,28 @@ bool String::operator==(const char* str2) const{
 
 	return *this;
 }
+
+ String& String::operator=(String*& str2){
+
+	 int length_str2 = strlen(str2->string);
+	 max_value = strlen(string) + 1;
+
+	 if (max_value < length_str2){
+		 delete[] string;
+		 string = new char[length_str2 + 1];
+	 }
+
+	 strcpy_s(string, length_str2 + 1, str2->string);
+
+	 return *this;
+ }
+
+
+
+
+
+
+ 
 
 const char* String::c_str(){
 	return string; 

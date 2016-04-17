@@ -3,15 +3,15 @@
 
 #include "Combat.h"
 #include "Inventory.h"
-#include "Entity.h"
 
 #define MAX_PLAYER_INVENTORY 10
 
-class player : public combat, public inventorys{
+class player : public combat{
 public:
 	int current_room;
-	int weapon;
+	int carried_weapon;
 	int card_hability; 
+	int prov_inv[MAX_PLAYER_INVENTORY]; 
 
 public: 
 	char* item_name(int item_num); 

@@ -8,6 +8,7 @@ public:
 	Rooms(const char* name2, const char*  desc2) : Entity(name2, desc2){}
 	String help;
 	int room_numb;
+	~Rooms(){}
 
 };
 
