@@ -87,3 +87,9 @@ v0.6
 	- I added 4 more items, one for each enemy, that the player can pick up if he wins the battle.
 	- I implemented the concept of coins. 
  
+v0.7
+
+	- I implemented the entire part of the combat mechanics.
+	- Inside the combat mechanics, i implemented the cappability for the player to change weapons, if he has something in the inventory. 
+	- I implemented an special attack, that will give some random but higher attack. 
+	- I implemented the shop, now the user is able to buy and sell items with the creaures. 
