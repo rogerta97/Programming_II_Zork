@@ -93,3 +93,19 @@ v0.7
 	- Inside the combat mechanics, i implemented the cappability for the player to change weapons, if he has something in the inventory. 
 	- I implemented an special attack, that will give some random but higher attack. 
 	- I implemented the shop, now the user is able to buy and sell items with the creaures. 
+
+v0.9
+
+In this step the functionality of the game is done. 
+
+	- I implemented the final boss with his habilities. 
+	- Now when the creature dies it throws coins and a special weapon caracteristic of the element.
+        - Coins ar traspassed automatically to the player but the item has to be picked up. 
+	- I inserted a price to each item, so when you buy you lose coins and the reverse with selling. 
+        - I corrected some bugs lefting in the combat mechanics. 
+
+
+
+	- 
+
+
