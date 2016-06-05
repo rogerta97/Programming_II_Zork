@@ -19,7 +19,7 @@ char* creature::item_name(int item_num){
 		case 14: return "bomb"; break;
 		case 15: return "fan"; break;
 		case 16: return "HPCard"; break;
-		case 17: return "firethrower"; break;
+		case 17: return "flamethrower"; break;
 		case 18: return "canonboux"; break;
 		case 19: return "waterwall"; break;
 		case 20: return "TNT"; break;

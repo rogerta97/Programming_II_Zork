@@ -81,8 +81,8 @@
     <ClInclude Include="Creature.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Exits.h" />
-    <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />

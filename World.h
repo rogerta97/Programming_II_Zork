@@ -6,6 +6,7 @@
 #include "Item.h"
 #include "Exits.h"
 #include "Strings.h"
+#include "NPC.h"
 #include "Simple_Objects.h"
 #include "Rooms.h"
 
@@ -17,7 +18,7 @@
 class world{
 private:
 
-	void move_character(const String&, bool&, bool&);
+	void move_character(const String&, bool&, bool&, int);
 	void Move_Simple_Obj(const String&);
 
 	void Pick_Item(const String&, int, int, bool);	
@@ -102,6 +103,7 @@ private:
 		ITEM_KNIFE, 
 		ITEM_POSION,
 		ITEM_ARMOR, 
+		NO_ITEM,
 	};
 	enum open_or_close_type{
 		INTERACT_DOOR,
@@ -134,6 +136,7 @@ private:
 		WATER_CREATURE,
 		EARTH_CREATURE,
 		FINAL_BOSS, 
+		SELLER, 
 	};
 
 

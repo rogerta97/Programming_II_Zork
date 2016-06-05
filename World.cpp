@@ -18,6 +18,7 @@
 #define CREATURES_NUMB 6 
 #define MAX_OBJECTS 10
 #define _CRT_SECURE_NO_WARNINGS_
+typedef unsigned int uint; 
 using namespace std; 
 
 // Simple objects are those that are needed for advancing the game and just need to be true or false, like a on or off generator, a on or off fireplace, check if the user moved the carpet...
@@ -26,24 +27,24 @@ using namespace std;
 void world::CreateWorld(){
 	//Actually there are 14 rooms, 4 of of them are "corridors" without any item or functionallity
 	//they just exist in order to be able to select one of the 3 doors inside a element. 
-	room.Push_Back(new Rooms("WEIRD BEDROOM", "You are in the middle of a dark room, it seems that the only think you conserve with you is your bed, you wake up in\nanother place and you listen to some sinester music as background.\n"));
-	room.Push_Back(new Rooms("FIRE CORRIDOR", "You are at the end of a corridor, there are 3 doors, one in each wall direction.\n"));
-	room.Push_Back(new Rooms("BURNER", "In the north of the room there is a fireplace with the fire on, there is a shelving on the west and a wall full of old\nphotographies of a unknown family at south.\n"));
-	room.Push_Back(new Rooms("EMPTY ROOM", "You are now facing with BOMBOCLATS! this is the fire boss! Go face him! (It's a really weird game so you can now be \nfriend with the monster and buy or sell thing, them you can start fighting, no questions.\n\n"));
-	room.Push_Back(new Rooms("OLD DAD ROOM", "What ? This is something familiar for you, you suddently entered into your dad's room and everything is like normally,\nyou left the door at west, on the north there is your dad's bed, on the east there is his closet\n and there is a TV with his favourite series at the south, there is a strange way made of fuel on the floor.\n"));
-	room.Push_Back(new Rooms("WIND CORRIDOR", "You are at the end of a corridor, there are 3 doors, one in each wall direction.\n"));
-	room.Push_Back(new Rooms("OLD MUM ROOM", "Things don't make sense, now you entered to your old mum's room, lefting the entrance on south, on the north of the \nroom there is a mirror with some make up and a fan, in the east there is the bed, but there are some weird \nscratches on the wall that is at west.\n"));
-	room.Push_Back(new Rooms("STDUYING ROOM", "This room contains a very big desktop with pens, papers and folders at the east, but the floor starts to break and a creature called BETEP now stands in front of you!\n"));
-	room.Push_Back(new Rooms("BIG WINDOW ROOM", "You entered to the room lefting the entrance at north, on south there is a huge closed window, on west and east there\n are 2 more windows, those normal in size and both closed, one for each wall.\n"));
-	room.Push_Back(new Rooms("WATER CORRIDOR", "You are at the end of a corridor, there are 3 doors, one in each wall direction.\n"));
-	room.Push_Back(new Rooms("AQUARIUM", "You appered into an aquarium, you left the entrance on the west, on the north you can see a wall of glass, behind, a fishbowl\n full of sharks, on the east there is the same type of fishbowl than the one with sharks, they are separated between a huge metalic wall, on south there is just a wall with paintings, in front of this wall there is a red chest.\n"));
-	room.Push_Back(new Rooms("STICK CONTAINER ROOM", "You left the entrance at north and there is a big container with sticks inside and there is a button next to \nthe container, in the south of the room, at the west the is a table full of buttons with a \nleaver, all the buttons are turned off.\n"));
-	room.Push_Back(new Rooms("LONELY BATHTUB", "You are seen the exit of the bathroom on the east, and there is a bathtub on the north, something strange happens,\n you start to feel vibrations on the floor and something wakes up from the watter, it's BANYU, the water boss.\n"));
-	room.Push_Back(new Rooms("EARTH CORRIDOR", "You are at the end of a corridor, there are 3 doors, one in each wall direction.\n"));
-	room.Push_Back(new Rooms("MINE", "You entered and you suddently appear in a mine, the door is on the north, and the wall on the west seems to be a little bit \,softer, the rest of the walls are full of insects, and due to the bad conditions of the mine, the rocks are breaking and there is some rock dust\n"));
-	room.Push_Back(new Rooms("BLACK HOLE", "This is such a rude way to go in, but you did it. You left the broken wall at the south and there is a door on the \neast, at west it seems to be a hole on the wall, the sound is higher when you're closer to the hole, you look through it and something starts comming, it's BUMI, the earth boos.\n"));
-	room.Push_Back(new Rooms("DRAWING ROOM", "You entered to a drawing room with the walls made of white stone stone, it's a long room and the exit is on the\nsouth, on the west there is a table with a strongbox on it, there is a red scarf on the floor with two cavalier figures made of iron at the end of the room, one holds a shield and the other one holds a peak, don't be scared!.\n"));
-	room.Push_Back(new Rooms("FINAL BOSS ROOM", "it seems you teleported to a open space, you are in the middle of an open field in the mountain, the sky is dark \nand it seems it will rain, but wait... there is something comming? OMG! A huge omnster is comming!\n"));
+	room.push_back(new Rooms("WEIRD BEDROOM", "You are in the middle of a dark room, it seems that the only think you conserve with you is your bed, you wake up in\nanother place and you listen to some sinester music as background.\n"));
+	room.push_back(new Rooms("FIRE CORRIDOR", "You are at the end of a corridor, there are 3 doors, one in each wall direction.\n"));
+	room.push_back(new Rooms("BURNER", "In the north of the room there is a fireplace with the fire on, there is a shelving on the west and a wall full of old\nphotographies of a unknown family at south.\n"));
+	room.push_back(new Rooms("EMPTY ROOM", "You are now facing with BOMBOCLATS! this is the fire boss! Go face him! (It's a really weird game so you can now be \nfriend with the monster and buy or sell thing, write <attack> + <creature name> then you can start fighting, no questions).\n"));
+	room.push_back(new Rooms("OLD DAD ROOM", "What ? This is something familiar for you, you suddently entered into your dad's room and everything is like normally,\nyou left the door at west, on the north there is your dad's bed, on the east there is his closet\n and there is a TV with his favourite series at the south, there is a strange way made of fuel on the floor.\n"));
+	room.push_back(new Rooms("WIND CORRIDOR", "You are at the end of a corridor, there are 3 doors, one in each wall direction.\n"));
+	room.push_back(new Rooms("OLD MUM ROOM", "Things don't make sense, now you entered to your old mum's room, lefting the entrance on south, on the north of the \nroom there is a mirror with some make up and a fan, in the east there is the bed, but there are some weird \nscratches on the wall that is at west.\n"));
+	room.push_back(new Rooms("STDUYING ROOM", "This room contains a very big desktop with pens, papers and folders at the east, but the floor starts to break and a creature called BETEP now stands in front of you! (It's a really weird game so you can now be \nfriend with the monster and buy or sell thing, write <attack> + <creature name> then you can start fighting, no questions).\n"));
+	room.push_back(new Rooms("BIG WINDOW ROOM", "You entered to the room lefting the entrance at north, on south there is a huge closed window, on west and east there\n are 2 more windows, those normal in size and both closed, one for each wall.\n"));
+	room.push_back(new Rooms("WATER CORRIDOR", "You are at the end of a corridor, there are 3 doors, one in each wall direction.\n"));
+	room.push_back(new Rooms("AQUARIUM", "You appered into an aquarium, you left the entrance on the west, on the north you can see a wall of glass, behind, a fishbowl\n full of sharks, on the east there is the same type of fishbowl than the one with sharks, they are separated between a huge metalic wall, on south there is just a wall with paintings, in front of this wall there is a red chest.\n"));
+	room.push_back(new Rooms("STICK CONTAINER ROOM", "You left the entrance at north and there is a big container with sticks inside and there is a button next to \nthe container, in the south of the room, at the west the is a table full of buttons with a \nleaver, all the buttons are turned off.\n"));
+	room.push_back(new Rooms("LONELY BATHTUB", "You are seen the exit of the bathroom on the east, and there is a bathtub on the north, something strange happens,\n you start to feel vibrations on the floor and something wakes up from the watter, it's BANYU, the water boss. (It's a really weird game so you can now be \nfriend with the monster and buy or sell thing, write <attack> + <creature name> then you can start fighting, no questions).\n"));
+	room.push_back(new Rooms("EARTH CORRIDOR", "You are at the end of a corridor, there are 3 doors, one in each wall direction.\n"));
+	room.push_back(new Rooms("MINE", "You entered and you suddently appear in a mine, the door is on the north, and the wall on the west seems to be a little bit \,softer, the rest of the walls are full of insects, and due to the bad conditions of the mine, the rocks are breaking and there is some rock dust\n"));
+	room.push_back(new Rooms("BLACK HOLE", "This is such a rude way to go in, but you did it. You left the broken wall at the south and there is a door on the \neast, at west it seems to be a hole on the wall, the sound is higher when you're closer to the hole, you look through it and something starts comming, it's BUMI, the earth boos. (It's a really weird game so you can now be \nfriend with the monster and buy or sell thing, write <attack> + <creature name> then you can start fighting, no questions).\n"));
+	room.push_back(new Rooms("DRAWING ROOM", "You entered to a drawing room with the walls made of white stone stone, it's a long room and the exit is on the\nsouth, on the west there is a table with a strongbox on it, there is a red scarf on the floor with two cavalier figures made of iron at the end of the room, one holds a shield and the other one holds a peak, don't be scared!.\n"));
+	room.push_back(new Rooms("FINAL BOSS ROOM", "it seems you teleported to a open space, you are in the middle of an open field in the mountain, the sky is dark \nand it seems it will rain, but wait... there is something comming? OMG! A huge omnster is comming!\n"));
 
 	//Setting flatten array of integers for the rooms.
 	for (int i = 0; i < ROOMS_NUMB; i++){
@@ -72,23 +73,23 @@ void world::CreateWorld(){
 
 	//Setting names of the exits with a constructor. 
 
-	exit.Push_Back(new exits("final boss teleport", "this is a door that suddently apeared on the wall, it has a blue electric color"));
-	exit.Push_Back(new exits("fire door", "this door adresses to a long corridor with some torches on the wall."));
-	exit.Push_Back(new exits("burner door", "this is a door made of metal girds."));
-	exit.Push_Back(new exits("empty room door", "it's a varnished brown woden door."));
-	exit.Push_Back(new exits("old dad door", "this is like your dad's old room door, white wood door."));
-	exit.Push_Back(new exits("wind door", "this door adresses to a long corridor with some windows on the wall."));
-	exit.Push_Back(new exits("old mum room door", "this is like your mum's old room door, white wood door."));
-	exit.Push_Back(new exits("studying room door", "this is a dor with a note on it, silence!"));
-	exit.Push_Back(new exits("big window room door", "this is a normal metalic door."));
-	exit.Push_Back(new exits("water door", "this door adresses to a long corridor with waterfall of watter on the each wall."));
-	exit.Push_Back(new exits("aquarium door", "this is a big gate with old used wood."));
-	exit.Push_Back(new exits("container stick door", "this is a door that suddently apeared on the wall, it has a blue electric color"));
-	exit.Push_Back(new exits("lonely bathtub door", "this is a gate maded of blue wood, it has golden door knob"));
-	exit.Push_Back(new exits("earth corridor", "this door adresses to a long corridor with tha walls made of stone."));
-	exit.Push_Back(new exits("mine door", "this is a tiny door maded by the holes of the stones on the wall."));
-	exit.Push_Back(new exits("black hole room door", "this is a door with a hole on the middle!"));
-	exit.Push_Back(new exits("drawing room door", "this is an elegant door, tipical of luxury drawing rooms"));
+	exit.push_back(new exits("final boss teleport", "this is a door that suddently apeared on the wall, it has a blue electric color"));
+	exit.push_back(new exits("fire door", "this door adresses to a long corridor with some torches on the wall."));
+	exit.push_back(new exits("burner door", "this is a door made of metal girds."));
+	exit.push_back(new exits("empty room door", "it's a varnished brown woden door."));
+	exit.push_back(new exits("old dad door", "this is like your dad's old room door, white wood door."));
+	exit.push_back(new exits("wind door", "this door adresses to a long corridor with some windows on the wall."));
+	exit.push_back(new exits("old mum room door", "this is like your mum's old room door, white wood door."));
+	exit.push_back(new exits("studying room door", "this is a dor with a note on it, silence!"));
+	exit.push_back(new exits("big window room door", "this is a normal metalic door."));
+	exit.push_back(new exits("water door", "this door adresses to a long corridor with waterfall of watter on the each wall."));
+	exit.push_back(new exits("aquarium door", "this is a big gate with old used wood."));
+	exit.push_back(new exits("container stick door", "this is a door that suddently apeared on the wall, it has a blue electric color"));
+	exit.push_back(new exits("lonely bathtub door", "this is a gate maded of blue wood, it has golden door knob"));
+	exit.push_back(new exits("earth corridor", "this door adresses to a long corridor with tha walls made of stone."));
+	exit.push_back(new exits("mine door", "this is a tiny door maded by the holes of the stones on the wall."));
+	exit.push_back(new exits("black hole room door", "this is a door with a hole on the middle!"));
+	exit.push_back(new exits("drawing room door", "this is an elegant door, tipical of luxury drawing rooms"));
 
 	//Setting an array of integers for the exits.
 
@@ -137,42 +138,43 @@ void world::CreateWorld(){
 
 	//main_character = new player;
 
-	creatures.Push_Back(new creature("Sunyol", "a big head", WEIRD_BEDROOM, -1, 150,200, 5, rand() % 100 + 150)); //this is the player creature
+	creatures.push_back(new player("Sunyol", "a big head", WEIRD_BEDROOM, -1, 250,300, 5, rand() % 100 + 150)); //this is the player creature
 
 	int objects = 0;
 	while (objects < MAX_OBJECTS){
-		creatures[PLAYER]->prov_inv[objects] = -1;      //we will set -1 for empty object.	
+		creatures[PLAYER]->inventory[objects] = -1;      //we will set -1 for empty object.	
 		objects++;
 	}
 
 	//Here we create the enemies
-	creatures.Push_Back(new creature("bomboclats", "this is the fire boss!", EMPTY_ROOM, ITEM_FLAMETHROWER, 150, rand() % 10 + 5 , rand() % 7 + 5, rand() % 100 + 150));
-	creatures.Push_Back(new creature("betep", "this is the wind boss!", STUDYING_ROOM, ITEM_CANONBOUX, 150, rand() % 10 + 5, rand() % 7 + 5, rand() % 100 + 150));
-	creatures.Push_Back(new creature("banyu", "this is the water boss!", LONELY_BATHTUB, ITEM_WATERWALL, 150, rand() % 10 + 5, rand() % 7 + 5, rand() % 100 + 150));
-	creatures.Push_Back(new creature("bumi", "this is the earth boss!", BLACK_HOLE, ITEM_TNT, 150, rand() % 10 + 5, rand() % 7 + 5, rand() % 100 + 150));
-	creatures.Push_Back(new creature("rock", "this is the final boss!", FINAL_BOSS_ROOM, ITEM_FLAMETHROWER, 150, rand() % 10 + 5, rand() % 7 + 5, rand() % 100 + 150));
+	creatures.push_back(new NPC("bomboclats", "this is the fire boss!", EMPTY_ROOM, ITEM_FLAMETHROWER, 150, rand() % 10 + 5 , rand() % 7 + 5, rand() % 100 + 150));
+	creatures.push_back(new NPC("betep", "this is the wind boss!", STUDYING_ROOM, ITEM_CANONBOUX, 150, rand() % 10 + 5, rand() % 7 + 5, rand() % 100 + 150));
+	creatures.push_back(new NPC("banyu", "this is the water boss!", LONELY_BATHTUB, ITEM_WATERWALL, 150, rand() % 10 + 5, rand() % 7 + 5, rand() % 100 + 150));
+	creatures.push_back(new NPC("bumi", "this is the earth boss!", BLACK_HOLE, ITEM_TNT, 150, rand() % 10 + 5, rand() % 7 + 5, rand() % 100 + 150));
+	creatures.push_back(new NPC("rock", "this is the final boss!", FINAL_BOSS_ROOM, ITEM_FLAMETHROWER, 150, rand() % 10 + 5, rand() % 7 + 5, rand() % 100 + 150));
+	creatures.push_back(new NPC("seller", "this is the man that will give you some stuff if you find them!", AQUARIUM, NO_ITEM, 100, 0, 0, 1000)); 
 	
 	objects = 0;
 	while (objects < MAX_OBJECTS){
-		creatures[FIRE_CREATURE]->prov_inv[objects] = -1;    
-		creatures[WIND_CREATURE]->prov_inv[objects] = -1; 
-		creatures[WATER_CREATURE]->prov_inv[objects] = -1; 
-		creatures[EARTH_CREATURE]->prov_inv[objects] = -1; 
-		creatures[FINAL_BOSS]->prov_inv[objects] = -1; //we will set -1 for empty object.	
+		creatures[FIRE_CREATURE]->inventory[objects] = -1;
+		creatures[WIND_CREATURE]->inventory[objects] = -1;
+		creatures[WATER_CREATURE]->inventory[objects] = -1;
+		creatures[EARTH_CREATURE]->inventory[objects] = -1;
+		creatures[FINAL_BOSS]->inventory[objects] = -1; //we will set -1 for empty object.	
 		objects++;
 	}
 
 	//Setting fire creature
 	creatures[FIRE_CREATURE]->item= ITEM_FLAMETHROWER;
-	creatures[FIRE_CREATURE]->prov_inv[0] = ITEM_ATTACK_BELT; 
+	creatures[FIRE_CREATURE]->inventory.push_back(ITEM_ATTACK_BELT);
 	creatures[WIND_CREATURE]->item= ITEM_CANONBOUX;
-	creatures[WIND_CREATURE]->prov_inv[0] = ITEM_COIN_BOX;
-	creatures[WIND_CREATURE]->prov_inv[1] = ITEM_UZY;
-	creatures[EARTH_CREATURE]->item = ITEM_WATERWALL;
-	creatures[EARTH_CREATURE]->prov_inv[0] = ITEM_KNIFE;
-	creatures[WATER_CREATURE]->item = ITEM_TNT;
-	creatures[FIRE_CREATURE]->prov_inv[0] = ITEM_POSION;
-	creatures[FIRE_CREATURE]->prov_inv[1] = ITEM_ARMOR;
+	creatures[WIND_CREATURE]->inventory.push_back(ITEM_COIN_BOX);
+	creatures[WIND_CREATURE]->inventory.push_back(ITEM_UZY);
+	creatures[EARTH_CREATURE]->item = ITEM_TNT;
+	creatures[EARTH_CREATURE]->inventory.push_back(ITEM_KNIFE);
+	creatures[WATER_CREATURE]->item = ITEM_WATERWALL;
+	creatures[FIRE_CREATURE]->inventory.push_back(ITEM_POSION);
+	creatures[FIRE_CREATURE]->inventory.push_back(ITEM_ARMOR);
 
 	//Setting the final boss. 
 	creatures[FINAL_BOSS]->current_room = FINAL_BOSS_ROOM;
@@ -181,7 +183,7 @@ void world::CreateWorld(){
 	creatures[FINAL_BOSS]->hp = 200;
 	creatures[FINAL_BOSS]->attack = rand() % 10 + 5;
 	creatures[FINAL_BOSS]->defense = rand () % 6 + 4;
-	creatures[FINAL_BOSS]->coins = 30000000000000000;
+	creatures[FINAL_BOSS]->coins = 30000000;
 	creatures[FINAL_BOSS]->damage = 0;
 	
 	
@@ -189,50 +191,50 @@ void world::CreateWorld(){
 	//We set the stats of the enemies 
 
 	//Before setting the items, we first set the simple objects status. 
-	simple_obj.Push_Back(new Simple_Objects(false, "shelving", BURNER));
-	simple_obj.Push_Back(new Simple_Objects(false, "fireplace", BURNER));
-	simple_obj.Push_Back(new Simple_Objects(false, "drawer", OLD_DAD_ROOM));
-	simple_obj.Push_Back(new Simple_Objects(false, "closet", OLD_DAD_ROOM));
-	simple_obj.Push_Back(new Simple_Objects(false, "chest", AQUARIUM));
-	simple_obj.Push_Back(new Simple_Objects(false, "fishgate", AQUARIUM));
-	simple_obj.Push_Back(new Simple_Objects(false, "lever", STICK_CONTAINER));
-	simple_obj.Push_Back(new Simple_Objects(false, "conatiner", STICK_CONTAINER));
-	simple_obj.Push_Back(new Simple_Objects(false, "strongbox", DRAWING_ROOM));
-	simple_obj.Push_Back(new Simple_Objects(true, "dust", MINE));
-	simple_obj.Push_Back(new Simple_Objects(false, "window1", BIG_WINDOW_ROOM));
-	simple_obj.Push_Back(new Simple_Objects(true, "window2", BIG_WINDOW_ROOM));
-	simple_obj.Push_Back(new Simple_Objects(true, "window3", BIG_WINDOW_ROOM));
+	simple_obj.push_back(new Simple_Objects(false, "shelving", BURNER));
+	simple_obj.push_back(new Simple_Objects(false, "fireplace", BURNER));
+	simple_obj.push_back(new Simple_Objects(false, "drawer", OLD_DAD_ROOM));
+	simple_obj.push_back(new Simple_Objects(false, "closet", OLD_DAD_ROOM));
+	simple_obj.push_back(new Simple_Objects(false, "chest", AQUARIUM));
+	simple_obj.push_back(new Simple_Objects(false, "fishgate", AQUARIUM));
+	simple_obj.push_back(new Simple_Objects(false, "lever", STICK_CONTAINER));
+	simple_obj.push_back(new Simple_Objects(false, "conatiner", STICK_CONTAINER));
+	simple_obj.push_back(new Simple_Objects(false, "strongbox", DRAWING_ROOM));
+	simple_obj.push_back(new Simple_Objects(true, "dust", MINE));
+	simple_obj.push_back(new Simple_Objects(false, "window1", BIG_WINDOW_ROOM));
+	simple_obj.push_back(new Simple_Objects(true, "window2", BIG_WINDOW_ROOM));
+	simple_obj.push_back(new Simple_Objects(true, "window3", BIG_WINDOW_ROOM));
 	
 
 	//Setting the items information with a constructor. 
-	items.Push_Back(new item("glass", "This is a simple glass of watter, but a big one!", false, BURNER));
-	items.Push_Back(new item("key", "This is an old golden key that seems to be the key of some old door too, the door is close.", false, BURNER));
-	items.Push_Back(new item("matchstick", "A matchstick! Light it up!", false, OLD_DAD_ROOM));
-	items.Push_Back(new item("sword", "What can you do with a sword? This sword has a magical energy that will increase your shield too! Attack = 30 \nHP +10.\n\n", false, OLD_DAD_ROOM));
-	items.Push_Back(new item("chest", "This is a red chest with golden edges, it seems that needs a code for being opened :)", true, AQUARIUM));
-	items.Push_Back(new item("AttackCard", "This card will give you an EXTRA 5 points of attack.", false, AQUARIUM));
-	items.Push_Back(new item("hammer", "That is a strong hammer! Attack = 40 // hp +10.", false, AQUARIUM));
-	items.Push_Back(new item("note", "The key is on Burner, just search better.\n\n", false, AQUARIUM));
-	items.Push_Back(new item("shield", "This is the shield of the cavalier. Shield = + 10", false, DRAWING_ROOM));
-	items.Push_Back(new item("peak", "The peak of the cavalier is a strong one! Take care of it! Attack = 40 // Shield = + 5 // hp = + 5", false, DRAWING_ROOM));
-	items.Push_Back(new item("gunpowder", "A little bit of gunpowder, it seems it have to match with something else.", true, DRAWING_ROOM));
-	items.Push_Back(new item("DefenseCard", "This card will give you an EXTRA 10 points of defense.", false, DRAWING_ROOM));
-	items.Push_Back(new item("strongbox", "A little bit of gunpowder, it seems it have to match with something else.", true, DRAWING_ROOM));
-	items.Push_Back(new item("wick", "This weak can be mixed with something? mmm... \n\n", false, MINE));
-	items.Push_Back(new item("bomb", "This is a strong bomb that can break walls!\n\n", false, MINE));
-	items.Push_Back(new item("fan", "This fan will help you to achieve your CORRIENTE DE AIRE\n\n", false, OLD_MUM_ROOM));
-	items.Push_Back(new item("HPCard", "You're getting close to the final boss, so here you have a card that will raise 20 HP points.\n\n", false, OLD_MUM_ROOM));
-	items.Push_Back(new item("flamethrower", "This is the flamehtrower of bomboclats! Attack = 30.\n\n", false, EMPTY_ROOM));
-	items.Push_Back(new item("canonboux", "This weapon is special from the wind boss, it throws vortex of wind to your enemies. Attack = 25\n\n", false, STUDYING_ROOM));
-	items.Push_Back(new item("waterwall", "This is a special shield that you can use 3 times, once you're carrying it your oponent won't be able to cause you any damage.\n\n", false, LONELY_BATHTUB));
-	items.Push_Back(new item("TNT", "This is a special granade that you can use twice. Damage = 50\n\n", false, BLACK_HOLE));
-	items.Push_Back(new item("diploma", "Congartulations! You got a diploma for playing this silly game.\n\n", false, FINAL_BOSS_ROOM));
-	items.Push_Back(new item("belt", "this belt will increase your damage", false, EMPTY_ROOM)); 
-	items.Push_Back(new item("coins", "This is a box full of coins. Value = 100\n\n", false, STUDYING_ROOM));
-	items.Push_Back(new item("uzy", "This is an automatic handgun, but you can only shot 3 bullets each turn. Attack = 35; \n\n", false, STUDYING_ROOM));
-	items.Push_Back(new item("knife", "This is a melee weapon, grey knife with golden hold. Damage = 20\n\n", false, LONELY_BATHTUB));
-	items.Push_Back(new item("posion", "This posion increase x2 your current hp.\n\n", false, BLACK_HOLE));
-	items.Push_Back(new item("armor", "this armor will decrease the enemy attack. Defense = 5", false, BLACK_HOLE));
+	items.push_back(new item("glass", "This is a simple glass of watter, but a big one!", false, BURNER));
+	items.push_back(new item("key", "This is an old golden key that seems to be the key of some old door too, the door is close.", false, BURNER));
+	items.push_back(new item("matchstick", "A matchstick! Light it up!", false, OLD_DAD_ROOM));
+	items.push_back(new item("sword", "What can you do with a sword? This sword has a magical energy that will increase your shield too! Attack = 30 \nHP +10.\n\n", false, OLD_DAD_ROOM));
+	items.push_back(new item("chest", "This is a red chest with golden edges, it seems that needs a code for being opened :)", true, AQUARIUM));
+	items.push_back(new item("AttackCard", "This card will give you an EXTRA 5 points of attack.", false, AQUARIUM));
+	items.push_back(new item("hammer", "That is a strong hammer! Attack = 40 // hp +10.", false, AQUARIUM));
+	items.push_back(new item("note", "The key is on Burner, just search better.\n\n", false, AQUARIUM));
+	items.push_back(new item("shield", "This is the shield of the cavalier. Shield = + 10", false, DRAWING_ROOM));
+	items.push_back(new item("peak", "The peak of the cavalier is a strong one! Take care of it! Attack = 40 // Shield = + 5 // hp = + 5", false, DRAWING_ROOM));
+	items.push_back(new item("gunpowder", "A little bit of gunpowder, it seems it have to match with something else.", true, DRAWING_ROOM));
+	items.push_back(new item("DefenseCard", "This card will give you an EXTRA 10 points of defense.", false, DRAWING_ROOM));
+	items.push_back(new item("strongbox", "A little bit of gunpowder, it seems it have to match with something else.", true, DRAWING_ROOM));
+	items.push_back(new item("wick", "This weak can be mixed with something? mmm... \n\n", false, MINE));
+	items.push_back(new item("bomb", "This is a strong bomb that can break walls!\n\n", false, MINE));
+	items.push_back(new item("fan", "This fan will help you to achieve your CORRIENTE DE AIRE\n\n", false, OLD_MUM_ROOM));
+	items.push_back(new item("HPCard", "You're getting close to the final boss, so here you have a card that will raise 20 HP points.\n\n", false, OLD_MUM_ROOM));
+	items.push_back(new item("flamethrower", "This is the flamehtrower of bomboclats! Attack = 30.\n\n", false, EMPTY_ROOM));
+	items.push_back(new item("canonboux", "This weapon is special from the wind boss, it throws vortex of wind to your enemies. Attack = 25\n\n", false, STUDYING_ROOM));
+	items.push_back(new item("waterwall", "This is a special shield that you can use 3 times, once you're carrying it your oponent won't be able to cause you any damage.\n\n", false, LONELY_BATHTUB));
+	items.push_back(new item("TNT", "This is a special granade that you can use twice. Damage = 50\n\n", false, BLACK_HOLE));
+	items.push_back(new item("diploma", "Congartulations! You got a diploma for playing this silly game.\n\n", false, FINAL_BOSS_ROOM));
+	items.push_back(new item("belt", "this belt will increase your damage", false, EMPTY_ROOM));
+	items.push_back(new item("coins", "This is a box full of coins. Value = 100\n\n", false, STUDYING_ROOM));
+	items.push_back(new item("uzy", "This is an automatic handgun, but you can only shot 3 bullets each turn. Attack = 35; \n\n", false, STUDYING_ROOM));
+	items.push_back(new item("knife", "This is a melee weapon, grey knife with golden hold. Damage = 20\n\n", false, LONELY_BATHTUB));
+	items.push_back(new item("posion", "This posion increase x2 your current hp.\n\n", false, BLACK_HOLE));
+	items.push_back(new item("armor", "this armor will decrease the enemy attack. Defense = 5", false, BLACK_HOLE));
 
 	//Setting the number of the items and the carriage. 
 	for (int i = 0; i < ITEMS_NUMB; i++){
@@ -288,7 +290,6 @@ void world::CreateWorld(){
 	//Here is printed the information of the character
 	printf("%s\n", room[creatures[PLAYER]->current_room]->name);
 	printf("%s\n", room[creatures[PLAYER]->current_room]->description);
-	
 
 }
 void world::Check_input(){
@@ -316,9 +317,24 @@ void world::Check_input(){
 			printf(".");
 			Sleep(1500);
 			printf(".");
-			printf("\n"); 
-			printf("%s \n You apeared to the final boss room, you are facing with ROCK, here is where you have to give everything, he's so strong!\n", room[FINAL_BOSS_ROOM]->name);
-			gameloop_end = Enter_Battle(FINAL_BOSS); 
+			printf("\n\n"); 
+			printf("%s \n You apeared to the final boss room, you are facing with ROCK, here is where you have to give everything, it will be a difficult battle!\n\n >: ", room[FINAL_BOSS_ROOM]->name);
+			scanf_s("%s %s", &command_c, 20, &move_c, 20);
+			String command(command_c);
+			String move(move_c);
+			if (move == "rock"){
+				if (command == "buy"){
+					printf("This is not able on the final boss dude, you go alone.\n\n");
+				}
+				else if (command == "sell"){
+					if (!creatures[PLAYER]->inventory.isempty())
+						Sell_Item(move, FINAL_BOSS);
+					else
+						printf("Your inventory is empty, you can't sell dude.\n\n"); 
+				}
+				else if (command == "attack")
+					gameloop_end = Enter_Battle(FINAL_BOSS);
+			}		
 		}
 		
 		printf(">: ");
@@ -351,7 +367,9 @@ void world::Check_input(){
 			scanf_s("%s", &move_c, 20);
 			String move(move_c); 
 			printf("\n");
-			//char open_direc[10];
+
+			
+			
 			if (command == "teleport"){
 				if (move == "A"){
 					creatures[PLAYER]->current_room = EMPTY_ROOM;
@@ -362,16 +380,20 @@ void world::Check_input(){
 					goto Start;
 				}
 				else if (move == "C"){
-					creatures[PLAYER]->current_room = BLACK_HOLE;
+					creatures[PLAYER]->current_room = LONELY_BATHTUB;
 					goto Start;
 				}
 				else if (move == "D"){
-					creatures[PLAYER]->current_room = LONELY_BATHTUB;
+					creatures[PLAYER]->current_room = BLACK_HOLE;
+					goto Start;
+				}
+				else if (move == "E"){
+					creatures[PLAYER]->current_room = WEIRD_BEDROOM;
 					goto Start;
 				}
 				}
 			if (command == "go")
-				move_character(move, moved, action_done);
+				move_character(move, moved, action_done, PLAYER);
 			else if (command == "open"){
 				//if the user wants to open something
 				int object_open;
@@ -429,12 +451,14 @@ void world::Check_input(){
 				action_done = true;
 			}
 			else if (command == "sell"){
-				if (creatures[PLAYER]->current_room == EMPTY_ROOM) Sell_Item(move, FIRE_CREATURE);
-				else if (creatures[PLAYER]->current_room == STUDYING_ROOM) Sell_Item(move, WIND_CREATURE);
-				else if (creatures[PLAYER]->current_room == LONELY_BATHTUB) Sell_Item(move, WATER_CREATURE);
-				else if (creatures[PLAYER]->current_room == BLACK_HOLE) Sell_Item(move, EARTH_CREATURE);
-				else if (creatures[PLAYER]->current_room == FINAL_BOSS_ROOM) Sell_Item(move, FINAL_BOSS);
-				action_done = true;
+				if (!creatures[PLAYER]->inventory.isempty()){
+					if (creatures[PLAYER]->current_room == EMPTY_ROOM) Sell_Item(move, FIRE_CREATURE);
+					else if (creatures[PLAYER]->current_room == STUDYING_ROOM) Sell_Item(move, WIND_CREATURE);
+					else if (creatures[PLAYER]->current_room == LONELY_BATHTUB) Sell_Item(move, WATER_CREATURE);
+					else if (creatures[PLAYER]->current_room == BLACK_HOLE) Sell_Item(move, EARTH_CREATURE);
+					else if (creatures[PLAYER]->current_room == FINAL_BOSS_ROOM) Sell_Item(move, FINAL_BOSS);
+					action_done = true;
+				}			
 			}
 			else if (command == "hit"){
 				Hit_Stuff(move); 
@@ -468,6 +492,11 @@ void world::Check_input(){
 			}
 			else if (command == "pick"){
 				Pick_Item(move, creatures[PLAYER]->current_room, PLAYER, false);
+				if (creatures[PLAYER]->inventory.is_in_vector(ITEM_DIPLOMA) != -1){
+					printf("CONGRATULATIONS! You picked up the final diploma! Press any button to close the game...");
+					getchar();
+					gameloop_end = true; 
+				}
 				action_done = true;
 			}
 			else if (command == "drop"){
@@ -506,29 +535,49 @@ void world::Check_input(){
 				printf("There is any door on that direction, just a wall!\n\n");
 			else if (command != "look" && action_done == false)
 				printf("You can't do that.\n\n"); 
+
+			int direction = rand() % 3;
+			if (direction == 0)
+				move = "north";
+			else if (direction == 1)
+				move = "south";
+			else if (direction == 2)
+				move = "east";
+			else if (direction == 3)
+				move = "west";
+
+			move_character(move, moved, action_done, SELLER);
+		}
+
+		if (creatures[PLAYER]->current_room == creatures[SELLER]->current_room){
+			printf("WOW! You found a person that is walking through the map and giving some money! Your earned 100 coins from him!\n\n"); 
+			creatures[PLAYER]->coins += 100; 
+			creatures[SELLER]->coins -= 100;
 		}
 	} while (gameloop_end == false); 
 }
 void world::Destroy_World(){
 
-	delete[] room.buffer;
-	delete[] exit.buffer;
-	delete[] items.buffer; 
-	delete[] simple_obj.buffer; 
-	delete creatures[PLAYER];
+	//I dont know hoe to do them...
+
+	//delete[] room;
+	//delete[] exit;
+	//delete[] items.buffer; 
+	//delete[] simple_obj.buffer; 
+	//delete creatures[PLAYER];
 	 
 }
 
-void world::move_character(const String& move, bool& moved, bool& permission){
+void world::move_character(const String& move, bool& moved, bool& permission, int creature_moving){
 	// if the user inserts the comand go: 
 	if (move == "north"){
 		// if the user wants to go north
-		switch (creatures[PLAYER]->current_room){
+		switch (creatures[creature_moving]->current_room){
 		case 0:
 			permission = true;
 			if (exit[1]->open){
 				permission = true;
-				creatures[PLAYER]->current_room = 1;
+				creatures[creature_moving]->current_room = 1;
 				moved = true; 
 			}		
 			else
@@ -536,52 +585,53 @@ void world::move_character(const String& move, bool& moved, bool& permission){
 			break;
 		case 1:
 			permission = true;
-			creatures[PLAYER]->current_room = 3;
+			creatures[creature_moving]->current_room = 3;
 			moved = true;
 			break;
 		case 13:
 			permission = true;
-			creatures[PLAYER]->current_room = 16;
+			creatures[creature_moving]->current_room = 16;
 			moved = true;
 			break;
 		case 9:
 			permission = true;
-			creatures[PLAYER]->current_room = 0;
+			creatures[creature_moving]->current_room = 0;
 			moved = true;
 			break;
 		case 11:
 			permission = true;
-			creatures[PLAYER]->current_room = 9;
+			creatures[creature_moving]->current_room = 9;
 			moved = true;
 			break;
 		case 8:
 			permission = true;
-			creatures[PLAYER]->current_room = 5;
+			creatures[creature_moving]->current_room = 5;
 			moved = true;
 			break;
 		case 5:
 			permission = true;
-			creatures[PLAYER]->current_room = 6;
+			creatures[creature_moving]->current_room = 6;
 			moved = true;
 			break;
 		case 14:
 			permission = true;
-			creatures[PLAYER]->current_room = 13;
+			creatures[creature_moving]->current_room = 13;
 			moved = true;
 			break;
 		}
 	}
 	else if (move == "south"){
 		//if the user wants to go south
-		switch (creatures[PLAYER]->current_room){
+		switch (creatures[creature_moving]->current_room){
 		case 3:
 			permission = true;
-			creatures[PLAYER]->current_room = 1;
+			creatures[creature_moving]->current_room = 1;
+			moved = true; 
 			break;
 		case 1:
 			permission = true; 
 			if (exit[1]->open){
-				creatures[PLAYER]->current_room = 0;
+				creatures[creature_moving]->current_room = 0;
 				moved = true;
 			}				
 			else
@@ -589,33 +639,33 @@ void world::move_character(const String& move, bool& moved, bool& permission){
 			break;
 		case 0:
 			permission = true;
-			creatures[PLAYER]->current_room = 9;
+			creatures[creature_moving]->current_room = 9;
 			moved = true;
 			break;
 		case 9:
 			permission = true;
-			creatures[PLAYER]->current_room = 11;
+			creatures[creature_moving]->current_room = 11;
 			moved = true;
 			break;
 		case 6:
 			permission = true;
-			creatures[PLAYER]->current_room = 5;
+			creatures[creature_moving]->current_room = 5;
 			moved = true;
 			break;
 		case 5:
 			permission = true;
-			creatures[PLAYER]->current_room = 8;
+			creatures[creature_moving]->current_room = 8;
 			moved = true;
 			break;
 		case 16:
 			permission = true;
-			creatures[PLAYER]->current_room = 13;
+			creatures[creature_moving]->current_room = 13;
 			moved = true;
 			break;
 		case 13:
 			permission = true;
 			if (exit[14]->open == true){
-				creatures[PLAYER]->current_room = 14;
+				creatures[creature_moving]->current_room = 14;
 				moved = true;
 			}
 			else
@@ -626,45 +676,45 @@ void world::move_character(const String& move, bool& moved, bool& permission){
 	}
 	else if (move == "east"){
 		//if the user wants to go east
-		switch (creatures[PLAYER]->current_room){
+		switch (creatures[creature_moving]->current_room){
 		case 2:
 			permission = true;
-			creatures[PLAYER]->current_room = 1;
+			creatures[creature_moving]->current_room = 1;
 			moved = true;
 			break;
 		case 1:
 			permission = true;
-			creatures[PLAYER]->current_room = 4;
+			creatures[creature_moving]->current_room = 4;
 			moved = true;
 			break;
 		case 0:
 			permission = true;
-			creatures[PLAYER]->current_room = 5;
+			creatures[creature_moving]->current_room = 5;
 			moved = true;
 			break;
 		case 5:
 			permission = true;
-			creatures[PLAYER]->current_room = 7;
+			creatures[creature_moving]->current_room = 7;
 			moved = true;
 			break;
 		case 9:
 			permission = true;
-			creatures[PLAYER]->current_room = 10;
+			creatures[creature_moving]->current_room = 10;
 			moved = true;
 			break;
 		case 15:
 			permission = true;
-			creatures[PLAYER]->current_room = 13;
+			creatures[creature_moving]->current_room = 13;
 			moved = true;
 			break;
 		case 12:
 			permission = true;
-			creatures[PLAYER]->current_room = 9;
+			creatures[creature_moving]->current_room = 9;
 			moved = true;
 			break; 
 		case 13:
 			permission = true;
-			creatures[PLAYER]->current_room = 0;
+			creatures[creature_moving]->current_room = 0;
 			moved = true;
 			break;
 		}
@@ -672,26 +722,26 @@ void world::move_character(const String& move, bool& moved, bool& permission){
 
 	else if (move == "west"){
 		//if the user wants to go west
-		switch (creatures[PLAYER]->current_room){
+		switch (creatures[creature_moving]->current_room){
 		case 4:
 			permission = true;
-			creatures[PLAYER]->current_room = 1;
+			creatures[creature_moving]->current_room = 1;
 			moved = true;
 			break;
 		case 1:
 			permission = true;
-			creatures[PLAYER]->current_room = 2;
+			creatures[creature_moving]->current_room = 2;
 			moved = true;
 			break;
 		case 0:
 			permission = true;
-			creatures[PLAYER]->current_room = 13;
+			creatures[creature_moving]->current_room = 13;
 			moved = true;
 			break;
 		case 13:
 			permission = true;
 			if (exit[15]->open == true){
-				creatures[PLAYER]->current_room = 15;
+				creatures[creature_moving]->current_room = 15;
 				moved = true;
 			}
 			else
@@ -700,22 +750,22 @@ void world::move_character(const String& move, bool& moved, bool& permission){
 			break;
 		case 10:
 			permission = true;
-			creatures[PLAYER]->current_room = 9;
+			creatures[creature_moving]->current_room = 9;
 			moved = true;
 			break;
 		case 9:
 			permission = true;
-			creatures[PLAYER]->current_room = 12;
+			creatures[creature_moving]->current_room = 12;
 			moved = true;
 			break;
 		case 7:
 			permission = true;
-			creatures[PLAYER]->current_room = 5;
+			creatures[creature_moving]->current_room = 5;
 			moved = true;
 			break;
 		case 5:
 			permission = true; 
-			creatures[PLAYER]->current_room = 0;
+			creatures[creature_moving]->current_room = 0;
 			moved = true;
 			break;
 		}
@@ -768,11 +818,10 @@ void world::Move_Simple_Obj(const String& move){
 }
 
 void world::Pick_Item(const String& move, int current_room, int creature, bool combat_mode){
-
 	if (combat_mode == false){
 		bool quit_for = false;
 		for (int i = 0; i < ITEMS_NUMB && quit_for == false; i++){
-			if (creatures[creature]->prov_inv[i] == -1){
+			if (creatures[creature]->inventory[i] == -1){
 				if (Get_Item_Room(Get_Num(move)) == creatures[creature]->current_room){
 					//It's hardcoded because it don't follows a pattern, every object has simple objects and every objects acts different.
 					switch (Get_Num(move)){
@@ -939,26 +988,25 @@ void world::Pick_Item(const String& move, int current_room, int creature, bool c
 	else{
 		printf("You sold %s!\n\n", move);
 		for (int i = 0; i < MAX_OBJECTS; i++){
-			if (creatures[creature]->prov_inv[i] == -1){
-				creatures[creature]->prov_inv[i] = Get_Num(move);
+			if (creatures[creature]->inventory[i] == -1){
+				creatures[creature]->inventory[i] = Get_Num(move);
 				return;
 			}
 		}
 	}
 
 }	
-void world::Drop_item(const String& move, int current_room, int creature, bool combat_mode){
+void world::Drop_item(const String& move, int current_room, int creature, bool combat_mode)
+{
 	int i = 0;
-	while (i < MAX_OBJECTS){
-		if (Get_Num(move) == creatures[creature]->prov_inv[i]){
-			items[creatures[creature]->prov_inv[i]]->item_room = creatures[creature]->current_room;
-			items[creatures[creature]->prov_inv[i]]->carried = false;
+	int pos = creatures[creature]->inventory.is_in_vector(Get_Num(move));
+		if (pos != -1)
+		{			
+			items[creatures[creature]->inventory[pos]]->item_room = creatures[creature]->current_room;
+			items[creatures[creature]->inventory[pos]]->carried = false;
 			if (combat_mode == false)
-				printf("You left the %s!\n\n", creatures[creature]->item_name(creatures[creature]->prov_inv[i]));
-			creatures[creature]->prov_inv[i] = -1;
-			break;
-		}
-		i++; 
+				printf("You left the %s!\n\n", creatures[creature]->item_name(creatures[creature]->inventory[pos]));
+			creatures[creature]->inventory.erase(pos);		
 	}
 }
 
@@ -1219,21 +1267,17 @@ void world::Close_Stuff(int current_room, bool& action_done, int open_type, cons
 
 void world::Full_inventory(int item_num){
 	int i = 0;
-	while (i < MAX_OBJECTS){
-		if (creatures[PLAYER]->prov_inv[i] == -1){
-			creatures[PLAYER]->prov_inv[i] = item_num;
-			break;
-		}
-		i++;
-	}
-	if (i == MAX_OBJECTS)
+	creatures[PLAYER]->inventory.push_back(item_num); 
+
+	if (creatures[PLAYER]->inventory.size() > 10)
 		printf("You can't carry more things!\n\n");
-}
+	}
+
 void world::empty_inventory(int item_num){
 	int i = MAX_OBJECTS;
 	while (i > MAX_OBJECTS){
-		if (creatures[PLAYER]->prov_inv[i] == item_num){
-			creatures[PLAYER]->prov_inv[i] = -1;
+		if (creatures[PLAYER]->inventory[i] == item_num){
+			creatures[PLAYER]->inventory[i] = -1;
 			break;
 		}
 		i++;
@@ -1242,28 +1286,18 @@ void world::empty_inventory(int item_num){
 		printf("You can't carry more things! Don't try to be impressive.");
 }
 void world::Show_inventory() const{
-	bool isempty = true; 
-	for (uint i = 0; i < MAX_OBJECTS; i++){
-		if (creatures[PLAYER]->prov_inv[i] != -1){
-			isempty = false;
-			break;
-		}
-			
+
+	if (creatures[PLAYER]->inventory.isempty()){
+		printf("Your inventory is empty!\n\n");
 	}
-	if (isempty){
-		printf("Your inventory is empty!\n\n"); 
-	}
+	else
+		creatures[PLAYER]->inventory.print(); 
 	
-	for (uint i = 0; i < MAX_OBJECTS && !isempty; i++){
-		if (creatures[PLAYER]->prov_inv[i] != -1)
-			printf("- %s\n", creatures[PLAYER]->item_name(creatures[PLAYER]->prov_inv[i]));
-		} 
-	printf("\n"); 
 }
 void world::Show_sell_inventory() const{
 	bool isempty = true;
 	for (uint i = 0; i < MAX_OBJECTS; i++){
-		if (creatures[PLAYER]->prov_inv[i] != -1){
+		if (creatures[PLAYER]->inventory[i] != -1){
 			isempty = false;
 			break;
 		}
@@ -1274,15 +1308,15 @@ void world::Show_sell_inventory() const{
 	}
 
 	for (uint i = 0; i < MAX_OBJECTS && !isempty; i++){
-		if (creatures[PLAYER]->prov_inv[i] != -1)
-			printf("- %s     Cost: %d coins\n", creatures[PLAYER]->item_name(creatures[PLAYER]->prov_inv[i]), items[creatures[PLAYER]->prov_inv[i]]->cost);
+		if (creatures[PLAYER]->inventory[i] != -1)
+			printf("- %s     Cost: %d coins\n", creatures[PLAYER]->item_name(creatures[PLAYER]->inventory[i]), items[creatures[PLAYER]->inventory[i]]->cost);
 	}
 }
 bool world::isin_inventory(const String& item_name, int owner){
 	int i = 0;
 	bool isin = false;
 	while (i < MAX_OBJECTS){
-		if (creatures[owner]->prov_inv[i] == Get_Num(item_name))
+		if (creatures[owner]->inventory[i] == Get_Num(item_name))
 			isin = true;
 		i++;
 	}
@@ -1358,24 +1392,27 @@ void world::BuyItem(int creature){
 	char item_to_buy[20]; 
 	printf("%s shop: \n", creatures[creature]->name); 
 	for (int i = 0; i < MAX_OBJECTS; i++){
-		if (creatures[creature]->prov_inv[i] != -1)
-			printf("- %s     Cost: %d\n", creatures[creature]->item_name(creatures[creature]->prov_inv[i]), items[creatures[creature]->prov_inv[i]]->cost); 
+		if (creatures[creature]->inventory[i] != -1)
+			printf("- %s     Cost: %d\n", creatures[creature]->item_name(creatures[creature]->inventory[i]), items[creatures[creature]->inventory[i]]->cost);
 	}
 	printf("\n>: "); 
 	scanf_s("%s", item_to_buy, 20); 
 	String item_buy(item_to_buy); 
-	if (isin_inventory(item_to_buy, creature)){
+	if (item_buy == "stats"){
+		printf("\nHP: %d\nAttack: %d\nDefense: %d\nCoins: %d\n\n", creatures[PLAYER]->hp, creatures[PLAYER]->attack, creatures[PLAYER]->defense, creatures[PLAYER]->coins);
+	}
+	else if (isin_inventory(item_to_buy, creature)){
 		for (int i = 0; i < MAX_OBJECTS; i++){
-			if (creatures[creature]->prov_inv[i] == Get_Num(item_buy) && items[creatures[creature]->prov_inv[i]]->cost < creatures[PLAYER]->coins){
-				if (creatures[creature]->prov_inv[i] == Get_Num("coins"))
-					creatures[PLAYER]->coins += items[creatures[creature]->prov_inv[i]]->cost;
+			if (creatures[creature]->inventory[i] == Get_Num(item_buy) && items[creatures[creature]->inventory[i]]->cost < creatures[PLAYER]->coins){
+				if (creatures[creature]->inventory[i] == Get_Num("coins"))
+					creatures[PLAYER]->coins += items[creatures[creature]->inventory[i]]->cost;
 				else
-					creatures[PLAYER]->coins -= items[creatures[creature]->prov_inv[i]]->cost; 
+					creatures[PLAYER]->coins -= items[creatures[creature]->inventory[i]]->cost;
 
-				printf("You bought %s!\n", creatures[creature]->item_name(creatures[creature]->prov_inv[i]));
+				printf("You bought %s!\n", creatures[creature]->item_name(creatures[creature]->inventory[i]));
 				printf("\n"); 
 				Full_inventory(Get_Num(item_buy));
-				creatures[creature]->prov_inv[i] = -1;				
+				creatures[creature]->inventory[i] = -1;
 			}				
 		}
 	};
@@ -1532,8 +1569,8 @@ void world::Put_Objects(const String & move, int current_room){
 		if ((move == "wick" && destination_str == "gunpowder" && isin_inventory(move, PLAYER) && isin_inventory(destination_str, PLAYER))){
 			printf("You mixed those elements and you crafted a bomb!\n\n");
 			for (int i = 0; i < MAX_OBJECTS; i++){
-				if (creatures[PLAYER]->prov_inv[i] == ITEM_WICK || creatures[PLAYER]->prov_inv[i] == ITEM_GUNPOWDER_CONTAINER){
-					creatures[PLAYER]->prov_inv[i] = -1;
+				if (creatures[PLAYER]->inventory[i] == ITEM_WICK || creatures[PLAYER]->inventory[i] == ITEM_GUNPOWDER_CONTAINER){
+					creatures[PLAYER]->inventory[i] = -1;
 				}
 			}
 			Full_inventory(ITEM_BOMB); 
@@ -1607,7 +1644,7 @@ int world::Get_Num(const String& item_name) const{
 		return ITEM_CANONBOUX;
 	else if (item_name == "waterwall")
 		return ITEM_WATERWALL;
-	else if (item_name == "tnt")
+	else if (item_name == "TNT")
 		return ITEM_TNT;
 	else if (item_name == "diploma")
 		return ITEM_DIPLOMA;
@@ -1658,7 +1695,6 @@ int world::Get_Simple_Num(const String& item_name) const{
 		return -1;
 
 }
-
 int world::Get_Item_Room(int item_num) const{
 	switch (item_num){
 	case ITEM_GLASS: return items[ITEM_GLASS]->item_room; break;
@@ -1718,6 +1754,10 @@ void world::Empty_item(const String& item_name, const String& container_str){
 bool world::exist_item(const String& item_name) const{
 	int returning = Get_Num(item_name); 
 	return returning != -1; 
+}
+void move_NPC(creature* seller){
+	int direction = rand() % 3; 
+
 }
 
 

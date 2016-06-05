@@ -26,6 +26,12 @@ Write "stats" to chek your combat stats.
 Write "put + item + into + destination" to put something inside something.
 
 Write "get + item + from + destination" to get an object from somewhere
+
+Write "attack" + "creature name" to attack some enemy
+
+Write "special" when it's needed to hit with a critical damage. 
+
+Write "buy" or "sell" for buying and selling items to creatures. 
 ___
 ## 0.2
 
@@ -104,8 +110,19 @@ In this step the functionality of the game is done.
 	- I inserted a price to each item, so when you buy you lose coins and the reverse with selling. 
         - I corrected some bugs lefting in the combat mechanics. 
 
+v1.0
+
+In this step the functionality of the game is done and all the special features are implemented. 
+
+	- I created a new class NPC, child of creature, that holds the NPC's on the game, and I mide class player child class of creature,
+	- I corrected the A bug, it crashed the game when the user wanted to see the stats while buying.  
+        - I implemented the final boss. 
+	- I implemented a new enemy that goes arround the map, when you find him it will give you some coins. 
+        - I corrected some more bugs lefting in the combat mechanics. 
+	- I made prov_inventory (provisional_inventory) a vector, it was an arra, so I adapted the code too.
 
 
-	- 
+
+	 
 
 

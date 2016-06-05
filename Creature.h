@@ -4,6 +4,7 @@
 #define MAX_PLAYER_INVENTORY 10
 
 #include "Entity.h"
+#include "Vector.h"
 #include <list>
 
 
@@ -15,7 +16,9 @@ public:
 	bool death = false;
 	int hp, attack, defense, coins, damage; 
 
-	int prov_inv[MAX_PLAYER_INVENTORY];
+	
+	Vector<int> inventory; 
+	//int prov_inv[MAX_PLAYER_INVENTORY];
 	char* item_name(int item_num);
 
 };
